@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  section.signin-container
+    a.header(href='dashboard.html', title='AdminFlare')
+        img(src='images/af-logo-signup.png', alt='Sign in to Admin Flare')
+        span
+          | Sign in to
+          br
+          strong MyWebClass
+      form(action='dashboard.html', method='get', accept-charset='utf-8')
+        fieldset
+          .fields
+            input#id_username(type='text', name='username', placeholder='Username', tabindex='1')
+            input#id_password(type='password', name='password', placeholder='Password', tabindex='2')
+          a.forgot-password(href='#', title='', tabindex='3') Forgot?
+          button.btn.btn-primary.btn-block(type='submit', tabindex='4') Sign In
+      .social
+        p ...or sign in with
+        a.twitter(href='dashboard.html', title='', tabindex='5')
+          i.icon-twitter
+        a.facebook(href='dashboard.html', title='', tabindex='6')
+          i.icon-facebook
+        a.google(href='dashboard.html', title='', tabindex='7')
+          i.icon-google-plus

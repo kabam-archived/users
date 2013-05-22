@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(ng-app='plunker')
+    div(ng-controller='CarouselDemoCtrl')
+      carousel(interval='myInterval')
+          slide(ng-repeat='slide in slides', active='slide.active')
+            img(ng-src='{{slide.image}}', style='margin: auto;')
+            .carousel-caption
+              h4 Slide {{$index}}
+              p {{slide.text}}
+        .row-fluid
+          .span6
+            ul
+              li(ng-repeat='slide in slides')
+                button.btn.btn-mini(ng-class='{\'btn-info\': !slide.active, \'btn-success\': slide.active}', ng-disabled='slide.active', ng-click='slide.active = true') select
+                | {{$index}}: {{slide.text}}
+            a.btn(ng-click='addSlide()') Add Slide
+          .span6
+            | Interval, in milliseconds:
+            input(type='number', ng-model='myInterval')
+            br
+            | Enter a negative number to stop the interval.
