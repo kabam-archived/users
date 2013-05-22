@@ -1,1 +1,1 @@
-console.log "'Allo from CoffeeScript!"
+consoOBle.log "'Allo from CoffeeScript!"
