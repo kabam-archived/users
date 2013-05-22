@@ -7,9 +7,13 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , fs = require('fs');
 
 var app = express();
+var env = process.env.NODE_ENV || 'development'
+  , config = require('./config/config')[env]
+  , mongoose = require('mongoose');
 
 // all environments
 app.set('port', process.env.PORT || 80);
@@ -21,6 +25,15 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'client/app')));
+
+// Bootstrap db connection
+mongoose.connect(config.db);
+
+// Bootstrap models
+var models_path = __dirname + '/models';
+fs.readdirSync(models_path).forEach(function (file) {
+  require(models_path+'/'+file);
+});
 
 // development only
 if ('development' == app.get('env')) {
