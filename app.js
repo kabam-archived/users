@@ -12,6 +12,7 @@ var app = express();
 var env = process.env.NODE_ENV || 'development'
   , config = require('./config/config')[env]
   , mongoose = require('mongoose')
+  , flash = require('connect-flash')
   , passport = require('passport');
 
 // all environments
@@ -25,6 +26,7 @@ app.use(express.methodOverride());
 
 app.use(express.cookieParser('mywebclass secret cookie'));
 app.use(express.session());
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());

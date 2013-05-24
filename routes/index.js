@@ -5,14 +5,16 @@ var passport = require('passport')
 module.exports = function (app) {
 
   app.get('/', function (req, res) {
-    res.render('index', { title: 'Express', user: req.user });
+    console.log(req.flash());
+    res.render('index', { title: 'Express', user: req.user, message: req.flash('info') });
   });
 
   app.get('/signin', function (req, res) {
-    res.render('signin', { title: 'Express', user: req.user });
+    res.render('signin', { title: 'Express', user: req.user, message: req.flash('error') });
   });
 
-  app.post('/signin', passport.authenticate('local', { failureRedirect: '/signin' }), function (req, res) {
+  app.post('/signin', passport.authenticate('local', { failureRedirect: '/signin',
+                                                     failureFlash: true }), function (req, res) {
     res.redirect('/');
   });
 

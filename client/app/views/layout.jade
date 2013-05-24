@@ -33,4 +33,6 @@ body(data-spy='scroll', data-target='.navbar')
           if (typeof(user) !== 'undefined')
             li
               a(href='profile') #{user.fullName}
+  if (typeof(message) !== 'undefined' && message[0])
+    .alert.alert-error.text-center.span8.offset2 #{message}
   block content
