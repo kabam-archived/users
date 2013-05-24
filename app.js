@@ -13,7 +13,6 @@ var env = process.env.NODE_ENV || 'development'
   , config = require('./config/config')[env]
   , mongoose = require('mongoose')
   , passport = require('passport');
-//  , LocalStrategy = require('passport-local').Strategy;
 
 // all environments
 app.set('port', process.env.PORT || 80);
@@ -23,6 +22,10 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'client/app')));
 
@@ -40,14 +43,6 @@ var User = mongoose.model('User');
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-
-/*
-var user = require('./routes/user');
-
-app.get('/rest/user', user.list);
-app.post('/rest/user', user.create);
-*/
 
 // development only
 if ('development' == app.get('env')) {

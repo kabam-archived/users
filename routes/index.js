@@ -5,11 +5,15 @@ var passport = require('passport')
 module.exports = function (app) {
 
   app.get('/', function (req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Express', user: req.user });
   });
 
   app.get('/signin', function (req, res) {
     res.render('signin', { title: 'Express', user: req.user });
+  });
+
+  app.post('/signin', passport.authenticate('local', { failureRedirect: '/signin' }), function (req, res) {
+    res.redirect('/');
   });
 
   app.get('/signup', function (req, res) {
@@ -27,6 +31,11 @@ module.exports = function (app) {
       }
       res.redirect('/');
     });
+  });
+
+  app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
   });
 
   app.get('/dashboard', function (req, res) {

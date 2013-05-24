@@ -8,7 +8,7 @@ block content
           | Sign in to
           br
           strong MyWebClass
-      form(action='dashboard.html', method='get', accept-charset='utf-8')
+      form(action='/signin', method='post', accept-charset='utf-8')
         fieldset
           .fields
             input#id_username(type='text', name='username', placeholder='Username', tabindex='1')
