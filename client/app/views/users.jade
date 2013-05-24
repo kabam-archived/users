@@ -7,36 +7,20 @@ block content
           th
             | #
           th
-            | First Name
+            | Full Name
           th
-            | Last Name
+            | Email
           th
             | Username
-      tbody
-        tr
-          td
-            | 1
-          td
-            | Mark
-          td
-            | Otto
-          td
-            | @mdo
-        tr
-          td
-            | 2
-          td
-            | Jacob
-          td
-            | Thornton
-          td
-            | @fat
-        tr
-          td
-            | 3
-          td
-            | Larry
-          td
-            | the Bird
-          td
-            | @twitter
+      if (users && users.length > 0)
+        tbody
+          each u, i in users
+            tr
+              td
+                | #{i+1}
+              td
+                | #{u.fullName}
+              td
+                | #{u.email}
+              td
+                | #{u.username}

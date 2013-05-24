@@ -45,7 +45,9 @@ module.exports = function (app) {
   });
 
   app.get('/users', function (req, res) {
-    res.render('users', { title: 'Express' });
+    User.find({}, function (err, users) {
+      res.render('users', { title: 'Express', users: users });
+    });
   });
 
 };
