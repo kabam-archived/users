@@ -8,22 +8,22 @@ block content
         | Sign up to
         br
         strong MyWebClass
-    form(action='dashboard.html', method='get', accept-charset='utf-8')
+    form(action='/signup', method='post', accept-charset='utf-8')
       fieldset
         .fields
-          input#id_fullname(type='text', name='fullname', placeholder='Full Name', tabindex='1')
+          input#id_fullname(type='text', name='fullName', placeholder='Full Name', tabindex='1')
           input#id_username(type='text', name='username', placeholder='Username', tabindex='2')
           input#id_password(type='password', name='password', placeholder='Password', tabindex='3')
           input#id_email(type='text', name='email', placeholder='E-mail', tabindex='4')
         button.btn.btn-block(type='submit', tabindex='5') Sign Up
     .social
       p ...or sign up with
-      a.btn.btn-cyan(href='dashboard.html', title='', tabindex='6')
+      a.btn.btn-cyan(href='/signup', title='', tabindex='6')
         i.icon-twitter
         | Twitter
-      a.btn.btn-blue(href='dashboard.html', title='', tabindex='7')
+      a.btn.btn-blue(href='/signup', title='', tabindex='7')
         i.icon-facebook
         | Facebook
-      a.btn.btn-red(href='dashboard.html', title='', tabindex='8')
+      a.btn.btn-red(href='/signup', title='', tabindex='8')
         i.icon-google-plus
         | Google

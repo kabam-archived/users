@@ -4,7 +4,6 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
   , http = require('http')
   , path = require('path')
   , fs = require('fs');
@@ -12,7 +11,9 @@ var express = require('express')
 var app = express();
 var env = process.env.NODE_ENV || 'development'
   , config = require('./config/config')[env]
-  , mongoose = require('mongoose');
+  , mongoose = require('mongoose')
+  , passport = require('passport');
+//  , LocalStrategy = require('passport-local').Strategy;
 
 // all environments
 app.set('port', process.env.PORT || 80);
@@ -34,20 +35,27 @@ fs.readdirSync(models_path).forEach(function (file) {
   require(models_path+'/'+file);
 });
 
+// Configure user authentication
+var User = mongoose.model('User');
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+/*
 var user = require('./routes/user');
+
+app.get('/rest/user', user.list);
+app.post('/rest/user', user.create);
+*/
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/signin', routes.signin);
-app.get('/signup', routes.signup);
-app.get('/dashboard', routes.dashboard);
-app.get('/users', routes.users);
-app.get('/rest/user', user.list);
-app.post('/rest/user', user.create);
+// setup routes
+require('./routes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
