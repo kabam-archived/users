@@ -23,6 +23,9 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+app.use(express.cookieParser('mywebclass secret cookie'));
+app.use(express.session());
+
 app.use(passport.initialize());
 app.use(passport.session());
 

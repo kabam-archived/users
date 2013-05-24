@@ -21,11 +21,16 @@ body(data-spy='scroll', data-target='.navbar')
           li.active
             a(href='/') Home
           li
-            a(href='signin') Signin
-          li
-            a(href='signup') Signup
-          li
             a(href='users') Users
-          li
-            a(href='logout') Logout
+          if (typeof(user) == 'undefined')
+            li
+              a(href='signin') Signin
+            li
+              a(href='signup') Signup
+          else
+            li
+              a(href='logout') Logout
+          if (typeof(user) !== 'undefined')
+            li
+              a(href='profile') #{user.fullName}
   block content
