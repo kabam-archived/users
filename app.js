@@ -54,8 +54,21 @@ passport.use(new GoogleStrategy({
   returnURL: config.google.callbackURL,
   realm: config.google.realm
 }, function (identifier, profile, done) {
-  User.findOrCreate({ id: identifier }, function (err, user) {
-    done(err, user);
+  User.findOne({ id: identifier }, function (err, user) {
+    if (user === null) {
+      user = new User({
+        id: identifier,
+        username: identifier,
+        provider: 'google',
+        displayName: profile.displayName,
+        emails: profile.emails,
+        name: profile.name
+      });
+      user.save(function (err, data) {
+        return done(err, data);
+      });
+    }
+    return done(err, user);
   });
 }));
 

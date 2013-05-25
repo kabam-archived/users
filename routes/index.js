@@ -5,7 +5,6 @@ var passport = require('passport')
 module.exports = function (app) {
 
   app.get('/', function (req, res) {
-    console.log(req.flash());
     res.render('index', { title: 'Express', user: req.user, message: req.flash('info') });
   });
 
