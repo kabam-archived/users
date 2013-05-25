@@ -13,8 +13,7 @@ var env = process.env.NODE_ENV || 'development'
   , config = require('./config/config')[env]
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
-  , passport = require('passport')
-  , GoogleStrategy = require('passport-google').Strategy;
+  , passport = require('passport');
 
 // all environments
 app.set('port', process.env.PORT || 80);
@@ -45,34 +44,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 });
 
 // Configure user authentication
-var User = mongoose.model('User');
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-passport.use(new GoogleStrategy({
-  returnURL: config.google.callbackURL,
-  realm: config.google.realm
-}, function (identifier, profile, done) {
-  User.findOne({ 'accounts.id': identifier }, function (err, user) {
-    if (user === null) {
-      var account = {
-        id: identifier,
-        provider: 'google',
-        emails: profile.emails,
-        name: profile.name
-      };
-      user = new User({
-        username: profile.emails[0].value,
-        accounts: [ account ]
-      });
-      user.save(function (err, data) {
-        return done(err, data);
-      });
-    }
-    return done(err, user);
-  });
-}));
+require('./config/passport')(config, passport);
 
 // development only
 if ('development' == app.get('env')) {
