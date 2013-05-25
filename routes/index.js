@@ -5,6 +5,7 @@ var passport = require('passport')
 module.exports = function (app) {
 
   app.get('/', function (req, res) {
+    console.log(req.user);
     res.render('index', { title: 'Express', user: req.user, message: req.flash('info') });
   });
 
@@ -22,14 +23,15 @@ module.exports = function (app) {
   });
 
   app.post('/signup', function (req, res) {
-    var emails = [];
-    emails.push({value: req.body.email,
-                 type: 'default'});
-    User.register(new User({
+    var account = {
       provider: 'local',
-      username: req.body.username,
+      id: req.body.username,
       displayName: req.body.displayName,
-      emails: emails
+      emails: [ { value: req.body.email, type: 'default' } ]
+    };
+    User.register(new User({
+      username: req.body.username,
+      accounts: [ account ]
     }), req.body.password, function (err, user) {
       if (err) {
         res.render('signup', { user: user });
