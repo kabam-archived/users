@@ -1,4 +1,6 @@
-var mongoose = require('mongoose')
+var passport = require('passport')
+  , mongoose = require('mongoose')
+  , authorization = require('../lib/authorization')
   , User = mongoose.model('User');
 
 module.exports = function (app) {
@@ -15,9 +17,9 @@ module.exports = function (app) {
     res.render('dashboard', { title: 'Express' });
   });
 
-  app.get('/users', function (req, res) {
+  app.get('/users', authorization.requiresLogin, function (req, res) {
     User.find({}, function (err, users) {
-      res.render('users', { title: 'Express', users: users });
+      res.render('users', { title: 'Express', users: users, user: req.user });
     });
   });
 
