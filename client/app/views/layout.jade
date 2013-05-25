@@ -32,7 +32,7 @@ body(data-spy='scroll', data-target='.navbar')
               a(href='logout') Logout
           if (typeof(user) !== 'undefined')
             li
-              a(href='profile') #{user.fullName}
+              a(href='profile') #{user.displayName}
   if (typeof(message) !== 'undefined' && message[0])
     .alert.alert-error.text-center.span8.offset2 #{message}
   block content

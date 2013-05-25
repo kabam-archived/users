@@ -23,10 +23,14 @@ module.exports = function (app) {
   });
 
   app.post('/signup', function (req, res) {
+    var emails = [];
+    emails.push({value: req.body.email,
+                 type: 'default'});
     User.register(new User({
+      provider: 'local',
       username: req.body.username,
-      fullName: req.body.fullName,
-      email: req.body.email
+      displayName: req.body.displayName,
+      emails: emails
     }), req.body.password, function (err, user) {
       if (err) {
         res.render('signup', { user: user });
