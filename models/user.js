@@ -24,6 +24,6 @@ var UserSchema = new Schema({
 
 UserSchema.plugin(passportLocalMongoose);
 
-UserSchema.index({ email: 1 });
+UserSchema.index({ id: 1 });
 
 module.exports = mongoose.model('User', UserSchema);

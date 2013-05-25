@@ -44,6 +44,12 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
+  // External sign-in
+  app.get('/auth/google', passport.authenticate('google'));
+
+  app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/',
+                                                                  failureRedirect: '/signin' }));
+
   app.get('/dashboard', function (req, res) {
     res.render('dashboard', { title: 'Express' });
   });

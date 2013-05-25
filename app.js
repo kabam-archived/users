@@ -13,7 +13,8 @@ var env = process.env.NODE_ENV || 'development'
   , config = require('./config/config')[env]
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
-  , passport = require('passport');
+  , passport = require('passport')
+  , GoogleStrategy = require('passport-google').Strategy;
 
 // all environments
 app.set('port', process.env.PORT || 80);
@@ -48,6 +49,15 @@ var User = mongoose.model('User');
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+passport.use(new GoogleStrategy({
+  returnURL: config.google.callbackURL,
+  realm: config.google.realm
+}, function (identifier, profile, done) {
+  User.findOrCreate({ id: identifier }, function (err, user) {
+    done(err, user);
+  });
+}));
 
 // development only
 if ('development' == app.get('env')) {

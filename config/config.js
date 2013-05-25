@@ -7,6 +7,10 @@ module.exports = {
     root: rootPath,
     app: {
       name: 'MyWebClass Development Version'
+    },
+    google: {
+      realm: 'http://node.mywebclass.org',
+      callbackURL: 'http://node.mywebclass.org/auth/google/return'
     }
   },
 
@@ -15,6 +19,10 @@ module.exports = {
     root: rootPath,
     app: {
       name: 'MyWebClass Testing Version'
+    },
+    google: {
+      realm: 'http://node.mywebclass.org',
+      callbackURL: 'http://node.mywebclass.org/auth/google/return'
     }
   },
 
@@ -23,6 +31,10 @@ module.exports = {
     root: rootPath,
     app: {
       name: 'MyWebClass'
+    },
+    google: {
+      realm: 'http://node.mywebclass.org',
+      callbackURL: 'http://node.mywebclass.org/auth/google/return'
     }
   }
 };
