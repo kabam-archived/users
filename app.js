@@ -20,11 +20,11 @@ var app = express()
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: "Fred Foo ✔ <mywebclass@webizly.com>", // sender address
-    to: "mywebclass@webizly.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
+    from: "MyWebClass  <mywebclass@webizly.com>", // sender address
+    to: "MyWebClass <mywebclass@webizly.com>", // list of receivers
+    subject: "Hello ", // Subject line
+    text: "Hello world ", // plaintext body
+    html: "<b>Hello world </b>" // html body
 }
 
 // send mail with defined transport object
