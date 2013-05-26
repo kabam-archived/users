@@ -29,6 +29,7 @@ module.exports = function (config, passport) {
           return done(err, data);
         });
       }
+      console.log(user);
       return done(err, user);
     });
   }));
