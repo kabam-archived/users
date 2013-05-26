@@ -14,6 +14,11 @@
     "passport-local": "*",
     "passport-local-mongoose": "*",
     "passport-google": "*",
-    "nodemailer": "~0.4.4"
+    "passport-github": "*",
+    "passport-linkedin": "*",
+    "passport-twitter": "*",
+    "passport-meetup": "*",
+    "nodemailer": "~0.4.4",
+    "yaml-config": "*"
   }
 }

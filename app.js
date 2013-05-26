@@ -10,7 +10,7 @@ var express = require('express')
 
 var app = express()
   , env = process.env.NODE_ENV || 'development'
-  , config = require('./config/config')[env]
+  , config = require('yaml-config').readConfig('./config/config.yml', env)
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
   , mail = require('./config/mail')

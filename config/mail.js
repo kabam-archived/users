@@ -1,10 +1,13 @@
 var nodemailer = require("nodemailer");
 
 // create reusable transport method (opens pool of SMTP connections)
-module.exports = new nodemailer.createTransport("SMTP",{
-  service: "Gmail",
-  auth: {
-      user: "mywebclass@webizly.com",
-      pass: "web$1234"
-  }
-});
+module.exports = function (config) {
+  console.log(config);
+  new nodemailer.createTransport("SMTP",{
+    service: config.smtp.service,
+    auth: {
+      user: config.smtp.user,
+      pass: config.smtp.pass
+    }
+  });
+};
