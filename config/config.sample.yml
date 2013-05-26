@@ -1,4 +1,5 @@
 development:
+  port: 3080
   db: mongodb://localhost/mywebclass_dev
   app:
     name: MyWebClass Development Version
@@ -11,6 +12,7 @@ development:
     pass: PASSWORD
 
 test:
+  port: 3080
   db: mongodb://localhost/mywebclass_test
   app:
     name: MyWebClass Testing Version
@@ -23,6 +25,7 @@ test:
     pass: PASSWORD
 
 production:
+  port: 80
   db: mongodb://localhost/mywebclass
   app:
     name: MyWebClass
