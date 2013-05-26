@@ -52,7 +52,7 @@ if ('development' == app.get('env')) {
 }
 
 // setup routes
-require('./routes/routes')(app, passport);
+require('./config/routes')(app, passport);
 
 
 http.createServer(app).listen(app.get('port'), function(){
