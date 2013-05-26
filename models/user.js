@@ -7,6 +7,7 @@ var mongoose = require('mongoose')
  **/
 
 var UserSchema = new Schema({
+  active: false,
   accounts: [{
     provider: String,
     id: String,
