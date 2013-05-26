@@ -1,10 +1,10 @@
 
 
 module.exports = function (app, passport) {
-  
-  var authorization = require('../controlers/authorization'),
-      pages = require('../controlers/pages'),
-      users = require('../controlers/users'),
+
+  var authorization = require('../controllers/authorization'),
+      pages = require('../controllers/pages'),
+      users = require('../controllers/users'),
       auth = require('../lib/authorization');
 
   app.get('/', pages.index);
@@ -13,7 +13,7 @@ module.exports = function (app, passport) {
   app.post('/signup', authorization.newLocalUser);
   app.get('/signin', authorization.signin);
   app.post('/signin', passport.authenticate('local', {
-                                    successRedirect: '/', 
+                                    successRedirect: '/',
                                     failureRedirect: '/signin',
                                     failureFlash: true })
   );
