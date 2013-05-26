@@ -13,6 +13,7 @@
     "passport": "*",
     "passport-local": "*",
     "passport-local-mongoose": "*",
-    "passport-google": "*"
+    "passport-google": "*",
+    "nodemailer": "~0.4.4"
   }
 }
