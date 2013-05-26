@@ -10,17 +10,17 @@ var express = require('express')
 
 var app = express()
   , env = process.env.NODE_ENV || 'development'
-  , config = require('yaml-config').readConfig('./config/config.yml', env)
+  , config = require('yaml-config').readConfig('../../../config/config.yml', env) // the module weirdly uses relative path from the library
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
-  , mail = require('./config/mail')
+  , mail = require('./config/mail')(config)
   , passport = require('passport');
 
   console.log(mail);
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: "MyWebClass  <mywebclass@webizly.com>", // sender address
+    from: "MyWebClass <mywebclass@webizly.com>", // sender address
     to: "MyWebClass <mywebclass@webizly.com>", // list of receivers
     subject: "Hello ", // Subject line
     text: "Hello world ", // plaintext body
@@ -38,15 +38,6 @@ mail.sendMail(mailOptions, function(error, response){
     // if you don't want to use this transport object anymore, uncomment following line
     //smtpTransport.close(); // shut down the connection pool, no more messages
 });
-
-
-
-
-
-
-
-
-
 
 // all environments
 app.set('port', process.env.PORT || 80);

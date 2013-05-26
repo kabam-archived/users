@@ -1,0 +1,35 @@
+development:
+  db: mongodb://localhost/mywebclass_dev
+  app:
+    name: MyWebClass Development Version
+  google:
+    realm: http://node.mywebclass.org
+    callbackURL: http://node.mywebclass.org/auth/google/return
+  smtp:
+    service: Gmail
+    user: USER@DOMAIN
+    pass: PASSWORD
+
+test:
+  db: mongodb://localhost/mywebclass_test
+  app:
+    name: MyWebClass Testing Version
+  google:
+    realm: http://node.mywebclass.org
+    callbackURL: http://node.mywebclass.org/auth/google/return
+  smtp:
+    service: Gmail
+    user: USER@DOMAIN
+    pass: PASSWORD
+
+production:
+  db: mongodb://localhost/mywebclass
+  app:
+    name: MyWebClass
+  google:
+    realm: http://node.mywebclass.org
+    callbackURL: http://node.mywebclass.org/auth/google/return
+  smtp:
+    service: Gmail
+    user: USER@DOMAIN
+    pass: PASSWORD
