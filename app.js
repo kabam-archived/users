@@ -8,8 +8,8 @@ var express = require('express')
   , path = require('path')
   , fs = require('fs');
 
-var app = express();
-var env = process.env.NODE_ENV || 'development'
+var app = express()
+  , env = process.env.NODE_ENV || 'development'
   , config = require('./config/config')[env]
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
@@ -52,8 +52,10 @@ if ('development' == app.get('env')) {
 }
 
 // setup routes
-require('./routes')(app);
+require('./routes/routes')(app, passport);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+console.log(app.routes);
