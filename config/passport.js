@@ -18,7 +18,8 @@ module.exports = function (config, passport) {
           id: identifier,
           provider: 'google',
           displayName: profile.displayName,
-          emails: profile.emails,
+          emails: [{ value: profile.emails[0].value,
+                   emailType: profile.emails[0].type}],
           name: profile.name
         };
         user = new User({

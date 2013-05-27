@@ -22,7 +22,7 @@ var UserSchema = new Schema({
     },
     emails: [{
       value: String,
-      type: String
+      emailType: String
     }],
     photos: [{ value: String }]
   }],
