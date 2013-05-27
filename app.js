@@ -40,7 +40,7 @@ mail.sendMail(mailOptions, function(error, response){
 });
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || config.port);
 app.set('views', __dirname + '/client/app/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
