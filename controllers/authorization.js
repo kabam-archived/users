@@ -1,6 +1,8 @@
-var passport = require('passport')
+var config = require('yaml-config').readConfig(__dirname + '/../config/config.yml')
+  , passport = require('passport')
   , mongoose = require('mongoose')
-  , User = mongoose.model('User');
+  , User = mongoose.model('User')
+  , email = require('../lib/email');
 
 exports.signin = function (req, res) {
   res.render('signin', {
@@ -25,7 +27,15 @@ exports.newLocalUser = function (req, res) {
     if (err) {
       res.render('signup', { user: user });
     }
-    user.generateConfirmationLink();
+    user.generateConfirmationLink(function (err, data) {
+      email.sendMail('account_activation',
+                     req.body.displayName + ' <' + req.body.email + '>',
+                     'MyWebClass account activation',
+                     { displayName: req.body.displayName,
+                       link: config.app.url + '/activate/' + user.confirmation.string }
+                    );
+    });
+    req.flash('info', 'Please check your email to activate your account');
     res.redirect('/');
   });
 };

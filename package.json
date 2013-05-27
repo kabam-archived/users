@@ -21,6 +21,7 @@
     "nodemailer": "~0.4.4",
     "yaml-config": "*",
     "generate-key": "*",
-    "moment": "*"
+    "moment": "*",
+    "email-templates": "*"
   }
 }

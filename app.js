@@ -13,31 +13,7 @@ var app = express()
   , config = require('yaml-config').readConfig(__dirname + '/config/config.yml', env)
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
-  , mail = require('./config/mail')(config)
   , passport = require('passport');
-
-  console.log(mail);
-
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: "MyWebClass <mywebclass@webizly.com>", // sender address
-    to: "MyWebClass <mywebclass@webizly.com>", // list of receivers
-    subject: "Hello ", // Subject line
-    text: "Hello world ", // plaintext body
-    html: "<b>Hello world </b>" // html body
-};
-
-// send mail with defined transport object
-mail.sendMail(mailOptions, function(error, response){
-    if(error){
-        console.log(error);
-    }else{
-        console.log("Message sent: " + response.message);
-    }
-
-    // if you don't want to use this transport object anymore, uncomment following line
-    //smtpTransport.close(); // shut down the connection pool, no more messages
-});
 
 // all environments
 app.set('port', process.env.PORT || config.port);
