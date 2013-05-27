@@ -19,6 +19,8 @@
     "passport-twitter": "*",
     "passport-meetup": "*",
     "nodemailer": "~0.4.4",
-    "yaml-config": "*"
+    "yaml-config": "*",
+    "generate-key": "*",
+    "moment": "*"
   }
 }

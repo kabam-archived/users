@@ -18,6 +18,8 @@ module.exports = function (app, passport) {
                                     failureFlash: true })
   );
   app.get('/logout', authorization.logout);
+  app.get('/activate/:string', authorization.activate);
+
   app.get('/auth/google', passport.authenticate('google'));
   app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/',
                                                                   failureRedirect: '/signin' }));

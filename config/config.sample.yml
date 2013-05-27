@@ -10,6 +10,7 @@ development:
     service: Gmail
     user: USER@DOMAIN
     pass: PASSWORD
+  confirmation_link_expire: 1
 
 test:
   port: 3080
@@ -23,6 +24,7 @@ test:
     service: Gmail
     user: USER@DOMAIN
     pass: PASSWORD
+  confirmation_link_expire: 1
 
 production:
   port: 80
@@ -36,3 +38,4 @@ production:
     service: Gmail
     user: USER@DOMAIN
     pass: PASSWORD
+  confirmation_link_expire: 72

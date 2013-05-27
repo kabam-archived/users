@@ -1,7 +1,8 @@
 exports.index = function (req, res) {
   res.render('index', {
     title: 'Index page',
-    user: req.user
+    user: req.user,
+    message: req.flash('info')
   });
 };
 

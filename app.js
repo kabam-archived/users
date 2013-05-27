@@ -10,7 +10,7 @@ var express = require('express')
 
 var app = express()
   , env = process.env.NODE_ENV || 'development'
-  , config = require('yaml-config').readConfig('../../../config/config.yml', env) // the module weirdly uses relative path from the library
+  , config = require('yaml-config').readConfig(__dirname + '/config/config.yml', env)
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
   , mail = require('./config/mail')(config)
@@ -25,7 +25,7 @@ var mailOptions = {
     subject: "Hello ", // Subject line
     text: "Hello world ", // plaintext body
     html: "<b>Hello world </b>" // html body
-}
+};
 
 // send mail with defined transport object
 mail.sendMail(mailOptions, function(error, response){
