@@ -21,6 +21,9 @@ block content
               td
                 | #{u.accounts[0].displayName}
               td
-                | #{u.accounts[0].emails[0].value}
+                if (typeof(u.accounts[0].emails[0]) !== "undefined")
+                  | #{u.accounts[0].emails[0].value}
+                else
+                  | -
               td
                 | #{u.username}
