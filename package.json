@@ -1,27 +1,32 @@
 {
-  "name": "application-name",
+  "name": "webizly-users",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Webizly/users"
+  },
   "dependencies": {
     "express": "3.2.4",
-    "connect-flash": "*",
-    "jade": "*",
-    "mongoose": "*",
-    "passport": "*",
-    "passport-local": "*",
-    "passport-local-mongoose": "*",
-    "passport-google": "*",
-    "passport-github": "*",
-    "passport-linkedin": "*",
-    "passport-twitter": "*",
-    "passport-meetup": "*",
-    "nodemailer": "~0.4.4",
-    "yaml-config": "*",
-    "generate-key": "*",
-    "moment": "*",
-    "email-templates": "*"
-  }
+    "connect-flash": "0.1.x",
+    "jade": "0.30.x",
+    "mongoose": "3.6.x",
+    "passport": "0.1.x",
+    "passport-local": "0.1.x",
+    "passport-local-mongoose": "0.2.x",
+    "passport-google": "0.3.x",
+    "passport-github": "0.1.x",
+    "passport-linkedin": "0.1.x",
+    "passport-twitter": "0.1.x",
+    "passport-meetup": "0.1.x",
+    "nodemailer": "0.4.x",
+    "yaml-config": "0.2.x",
+    "generate-key": "0.0.x",
+    "moment": "2.0.x",
+    "email-templates": "0.1.x"
+  },
+  "engine": "0.10.x"
 }
