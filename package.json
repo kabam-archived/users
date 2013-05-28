@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Webizly/users"
+  },
   "dependencies": {
     "express": "3.2.4",
     "connect-flash": "0.1.x",
