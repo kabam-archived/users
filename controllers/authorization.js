@@ -26,6 +26,7 @@ exports.newLocalUser = function (req, res) {
   }), req.body.password, function (err, user) {
     if (err) {
       res.render('signup', { user: user });
+      res.redirect('/');
     }
     user.generateConfirmationLink(function (err, data) {
       email.sendMail('account_activation',
@@ -50,15 +51,15 @@ exports.logout = function (req, res) {
 };
 
 exports.activate = function (req, res) {
-  console.log(req.params.string);
+
   User.findOne({ active: false, 'confirmation.string': req.params.string }, function (err, user) {
     if (err) throw err;
     if (!user) {
-      console.log(user);
+
       req.flash('info', 'Activate user failed! Make sure you call the correct link!');
       return res.redirect('/');
     }
-    console.log(user);
+
     user.activateUser(req.params.string, function (err) {
       if (err) {
         req.flash('info', err.message);
