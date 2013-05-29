@@ -20,3 +20,4 @@ dist
 .sass-cache
 
 config/config.yml
+nbproject
