@@ -24,6 +24,10 @@ var UserSchema = new Schema({
       value: String,
       type: {type: String}
     }],
+    phoneNumbers: [{
+      value: String,
+      type: {type: String}
+    }],
     photos: [{ value: String }]
   }],
   confirmation: {
