@@ -1,8 +1,8 @@
-= MYWEBCLASS
+# MYWEBCLASS
 
-== Installation Note
+## Installation Note
 
-=== Requirements
+### Requirements
 
 Base Applications
 
@@ -24,7 +24,7 @@ Several npm packages needs to be installed globally (using `sudo npm install -g 
  9. coffee-script (coffee script compiler)
 10. node-dev (node application restarter)
 
-=== Installation Notes
+### Installation Notes
 
 Clone the repository:
 
