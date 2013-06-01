@@ -22,7 +22,7 @@ Several npm packages needs to be installed globally (using `sudo npm install -g 
  7. phantomjs (client-side testing platform)
  8. jshint (code style checker)
  9. coffee-script (coffee script compiler)
-10. node-dev (node application restarter)
+ 10. node-dev (node application restarter)
 
 ### Installation Notes
 
