@@ -8,7 +8,7 @@ var express = require('express')
   , path = require('path')
   , fs = require('fs');
 
-var app = express()
+var app = module.exports = express()
   , env = process.env.NODE_ENV || 'development'
   , config = require('yaml-config').readConfig(__dirname + '/config/config.yml', env)
   , mongoose = require('mongoose')
