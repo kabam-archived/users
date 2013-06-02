@@ -13,16 +13,16 @@ Base Applications
 It's only tested in Ubuntu Linux 12.04, 12.10 and 13.04
 
 Several npm packages needs to be installed globally (using `sudo npm install -g [package name]`), they are:
- 1. express (the main web application framework)
- 2. yo (application scaffold)
- 3. grunt (task runner)
- 4. bower (client-side JavaScript dependency manager)
- 5. mocha (testing framework)
- 6. grunt-mocha
- 7. phantomjs (client-side testing platform)
- 8. jshint (code style checker)
- 9. coffee-script (coffee script compiler)
- 10. node-dev (node application restarter)
+ 1. [express](https://github.com/visionmedia/express) (the main web application framework)
+ 2. [yo](https://github.com/yeoman/yo) (application scaffold)
+ 3. [grunt](https://github.com/gruntjs/grunt) (task runner)
+ 4. [bower](https://github.com/bower/bower) (client-side JavaScript dependency manager)
+ 5. [mocha](http://github.com/visionmedia/mocha) (testing framework)
+ 6. [grunt-mocha](https://github.com/kmiyashiro/grunt-mocha)
+ 7. [phantomjs](https://github.com/Obvious/phantomjs) (client-side testing platform)
+ 8. [jshint](https://github.com/jshint/jshint) (code style checker)
+ 9. [coffee-script](https://github.com/jashkenas/coffee-script) (coffee script compiler)
+ 10. [node-dev](https://github.com/fgnass/node-dev) (node application restarter)
 
 ### Installation Notes
 
