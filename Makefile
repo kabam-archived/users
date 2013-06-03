@@ -1,6 +1,5 @@
 .PHONY: test setup
 
-MOCHA_OPTS= --check-leaks
 REPORTER = dot
 
 setup:
