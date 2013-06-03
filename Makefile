@@ -1,5 +1,8 @@
 .PHONY: test setup
 
+MOCHA_OPTS= --check-leaks
+REPORTER = dot
+
 setup:
 	npm install -g express
 	npm install -g yo
@@ -12,5 +15,14 @@ setup:
 	npm install -g coffee-script
 	npm install -g node-dev
 
-test:
-	node_modules/jasmine-node/bin/jasmine-node test/end-point-test/ --forceexit
+test: test-unit test-end-point
+
+test-unit:
+	./node_modules/.bin/mocha \
+	--reporter $(REPORTER) \
+	-t 15s \
+	test/unit-test/*.js
+
+test-end-point:
+	node_modules/jasmine-node/bin/jasmine-node \
+	test/end-point-test/ --forceexit

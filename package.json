@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,9 @@
   },
   "devDependencies": {
     "frisby": ">= 0.6.x",
-    "jasmine-node": ">= 1.8.x"
+    "jasmine-node": ">= 1.8.x",
+    "mocha": ">= 1.10.x",
+    "should": ">= 1.2.x"
   },
   "engine": ">= 0.10.x"
 }
