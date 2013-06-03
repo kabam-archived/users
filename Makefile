@@ -4,6 +4,8 @@ MOCHA_OPTS= --check-leaks
 REPORTER = dot
 
 setup:
+	npm install
+	npm install -d
 	npm install -g express
 	npm install -g yo
 	npm install -g grunt

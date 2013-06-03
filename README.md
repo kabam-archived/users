@@ -66,3 +66,18 @@ Or to run it in development mode:
 ```sh
 $ node-dev app.js
 ```
+
+## Running Tests
+
+To run the test suite first invoke the following command within the repo to
+installing the development dependencies:
+
+```sh
+$ make setup
+```
+
+then run the tests:
+
+```sh
+$ make test
+```
