@@ -32,21 +32,11 @@ Clone the repository:
 $ git clone git@github.com:Webizly/users.git
 ```
 
-Install npm modules for the backend:
+Install the dependencies for the frontend and backend:
 
 ```sh
-$ cd users
-$ npm install
+$ sudo make setup
 ```
-
-Install npm modules and JavaScript libraries for the frontend:
-
-```sh
-$ cd client
-$ npm install
-$ bower install
-```
-
 Configuration (create and edit config.yml)
 
 ```sh
