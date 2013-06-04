@@ -1,12 +1,17 @@
 var nodemailer = require('nodemailer');
 
-// create reusable transport method (opens pool of SMTP connections)
-module.exports = function (config) {
-  return new nodemailer.createTransport('SMTP',{
-    service: config.smtp.service,
+/**
+ * Create reusable transport method (opens pool of SMTP connections)
+ *
+ * @param {object} smtpConfig email transport configs
+ */
+module.exports = function (smtpConfig) {
+
+  return new nodemailer.createTransport('SMTP', {
+    service: smtpConfig.service,
     auth: {
-      user: config.smtp.user,
-      pass: config.smtp.pass
+      user: smtpConfig.user,
+      pass: smtpConfig.pass
     }
   });
 };
