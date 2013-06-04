@@ -23,6 +23,7 @@ describe('Email', function () {
 
     it('should have a send interface', function () {
       var baseEmail = new email.Email();
+      should.exist(baseEmail.mailTransport);
       should.exist(baseEmail.send);
       baseEmail.send.should.be.a('function');
     });
