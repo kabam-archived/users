@@ -15,6 +15,7 @@ setup:
 	npm install -g jshint
 	npm install -g coffee-script
 	npm install -g node-dev
+	cd client; npm install; bower install
 
 test: test-unit test-end-point
 

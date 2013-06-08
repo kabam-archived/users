@@ -2,13 +2,14 @@ var config = require('yaml-config').readConfig(__dirname + '/../config/config.ym
   , passport = require('passport')
   , mongoose = require('mongoose')
   , User = mongoose.model('User')
-  , email = require('../lib/email');
+  , email = require('../lib/email')
+  , baseEmail = new email.Email();
 
 exports.signin = function (req, res) {
   res.render('signin', {
     title: 'Signin'
-    , user: req.user
-    , message: req.flash('error')
+      , user: req.user
+      , message: req.flash('error')
   });
 };
 
@@ -17,32 +18,40 @@ exports.newLocalUser = function (req, res) {
     provider: 'local',
     id: req.body.username,
     displayName: req.body.displayName,
-    emails: [ { value: req.body.email, type: 'default' } ]
+    emails: [{value: req.body.email, type: 'default'}]
   };
   User.register(new User({
     active: false,
     username: req.body.username,
-    accounts: [ account ]
+    accounts: [account]
   }), req.body.password, function (err, user) {
     if (err) {
-      res.render('signup', { user: user });
+      res.render('signup', {user: user});
       res.redirect('/');
     }
+
     user.generateConfirmationLink(function (err, data) {
-      email.sendMail('account_activation',
-                     req.body.displayName + ' <' + req.body.email + '>',
-                     'MyWebClass account activation',
-                     { displayName: req.body.displayName,
-                       link: config.app.url + '/activate/' + user.confirmation.string }
-                    );
+      
+      email.AccountRegistration(baseEmail);
+      var recipient = req.body.email;
+
+      baseEmail.send(recipient, 'MyWebClass account activation',
+        {
+          displayName: req.body.displayName,
+          link: config.app.url + '/activate/' + user.confirmation.string
+        },
+      function (err, result) {
+        if (result) {
+          req.flash('info', 'Please check your email to activate your account');
+          res.redirect('/');
+        }
+      });
     });
-    req.flash('info', 'Please check your email to activate your account');
-    res.redirect('/');
   });
 };
 
 exports.signup = function (req, res) {
-  res.render('signup', { title: 'Express' });
+  res.render('signup', {title: 'Express'});
 };
 
 exports.logout = function (req, res) {
@@ -52,8 +61,9 @@ exports.logout = function (req, res) {
 
 exports.activate = function (req, res) {
 
-  User.findOne({ active: false, 'confirmation.string': req.params.string }, function (err, user) {
-    if (err) throw err;
+  User.findOne({active: false, 'confirmation.string': req.params.string}, function (err, user) {
+    if (err)
+      throw err;
     if (!user) {
 
       req.flash('info', 'Activate user failed! Make sure you call the correct link!');
@@ -65,7 +75,7 @@ exports.activate = function (req, res) {
         req.flash('info', err.message);
       } else {
         req.flash('info', 'Your user account has been activated');
-        req.login(user, function(err) {
+        req.login(user, function (err) {
           if (err) {
             req.flash('info', err.message);
           }

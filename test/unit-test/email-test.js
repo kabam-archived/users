@@ -2,7 +2,8 @@
  * Email test suite
  */
 
-var should = require('should');
+var should = require('should'),
+  nodemailer = require('nodemailer');
 
 var email = require('./../../lib/email');
 
@@ -22,6 +23,7 @@ describe('Email', function () {
 
     it('should have a send interface', function () {
       var baseEmail = new email.Email();
+      should.exist(baseEmail.mailTransport);
       should.exist(baseEmail.send);
       baseEmail.send.should.be.a('function');
     });
@@ -52,13 +54,23 @@ describe('Email', function () {
   describe('Account Registration', function () {
     describe('#AccountRegistration()', function () {
       it('should sent an account registration message', function (done) {
-        var baseEmail = new email.Email();
+        var stubTransport = nodemailer.createTransport('Stub');
+        var baseEmail = new email.Email(stubTransport);
         email.AccountRegistration(baseEmail);
-        baseEmail.send('keith@webizly.com', function (err, result) {
-          if (err) throw err;
+
+        baseEmail.send('keith@webizly.com', 'Test subject',
+          {
+            displayName: 'Test Display Name',
+            link: 'http://example.com/1234567890'
+          },
+        function (err, result) {
+
+          if (err)
+            throw err;
 
           result.should.be.a('object');
-          result.failedRecipients.should.be.empty;
+          result.should.have.property('message');
+          result.should.have.property('messageId');
 
           done();
         });
