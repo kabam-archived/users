@@ -1,12 +1,11 @@
-var mongoose = require('mongoose')
-  , Schema = mongoose.Schema
-  , passportLocalMongoose = require('passport-local-mongoose')
-  , moment = require('moment')
-  , config = require('yaml-config').readConfig(__dirname + '/../config/config.yml');
-
 /**
  * User Schema
  **/
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    passportLocalMongoose = require('passport-local-mongoose'),
+    moment = require('moment'),
+    config = require('yaml-config').readConfig(__dirname + '/../config/config.yml');
 
 var UserSchema = new Schema({
   active: Boolean,
@@ -48,18 +47,18 @@ UserSchema.methods.generateConfirmationLink = function (callback) {
 };
 
 UserSchema.methods.activateUser = function (confirmationString, callback) {
+  var err;
   if (typeof confirmationString !== 'undefined') {
     if (confirmationString !== this.confirmation.string) {
-      var err = new Error("Confirmation Strings don't match");
+      err = new Error('Confirmation Strings don\'t match');
       callback(err);
     }
-    var originalDate = moment(this.confirmation.date)
-      , now = moment()
-      , expired = (typeof config.confirmation_link_expire == 'undefined') ? 1 : config.confirmation_link_expire;
-    console.log(this.confirmation.date);
-    console.log('expired', expired);
+    var originalDate = moment(this.confirmation.date),
+        now = moment(),
+        expired = (typeof config.confirmationLinkExpire === 'undefined') ? 1 : config.confirmationLinkExpire;
+
     if (now.isAfter(originalDate.add('hours', expired))) {
-      var err = new Error('The link has expired.');
+      err = new Error('The link has expired.');
       callback(err);
     }
   }

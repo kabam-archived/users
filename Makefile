@@ -1,6 +1,6 @@
 .PHONY: test setup
 
-REPORTER = dot
+REPORTER = spec
 
 setup:
 	npm install

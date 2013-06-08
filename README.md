@@ -71,3 +71,51 @@ then run the tests:
 ```sh
 $ make test
 ```
+
+## RESTful API
+
+We use [mers](https://github.com/jspears/mers) for RESTful API automatic generation from mongoose Schema.
+
+The resulting API's are:
+
+For example, we'll use the `User` object
+
+  * Read / get list of all users:
+    GET http://baseurl/rest/user
+
+  * List with pagination:
+    GET http://baseurl/rest/user?skip=10&limit=10
+
+  * List with filter (all user with username containing 'ab'):
+    GET http://baseurl/rest/user?filter[username]=ab
+
+  * List with sorting (by activeDate desc, username asc):
+    GET http://baseurl/rest/user?sort=activeDate:-1,username:1
+
+  * List by custom finder (custom static method in the schema):
+    GET http://baseurl/rest/user/finder/findByCustomParameter?param=value
+
+  * Read / getOB a user based on its id:
+    GET http://baseurl/rest/user/$id
+
+  * Create a new user
+    POST http://baseurl/rest/user with json data and `Content-Type: application/json` in the request headerOB
+
+  * Update a user
+    PUT http://baseurl/rest/user/$id with json data and `Content-Type: application/json` in the request header
+
+  * Delete a user
+    DELETE http://baseurl/rest/user/$id
+
+All requests should also contain `Accept: application/json` in its header.
+
+The response's format:
+```javascript
+{
+  "status": 0,
+  "payload": [ { ... } ]
+}
+```
+
+  * For get list, it also has a "total" property.
+  * `payload` is an object (instead of an array) for POST and PUT requests.

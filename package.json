@@ -14,6 +14,7 @@
     "express": ">= 3.2.x",
     "connect-flash": ">= 0.1.x",
     "jade": ">= 0.30.x",
+    "async": "*",
     "mongoose": ">= 3.6.x",
     "passport": ">= 0.1.x",
     "passport-local": ">= 0.1.x",
@@ -26,13 +27,15 @@
     "nodemailer": ">= 0.4.x",
     "yaml-config": ">= 0.2.x",
     "generate-key": ">= 0.0.x",
-    "moment": ">= 2.0.x"
+    "moment": ">= 2.0.x",
+    "mers": "*"
   },
   "devDependencies": {
     "frisby": ">= 0.6.x",
     "jasmine-node": ">= 1.8.x",
     "mocha": ">= 1.10.x",
-    "should": ">= 1.2.x"
+    "should": ">= 1.2.x",
+    "supertest": "*"
   },
   "engine": ">= 0.10.x"
 }
