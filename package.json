@@ -26,7 +26,8 @@
     "nodemailer": ">= 0.4.x",
     "yaml-config": ">= 0.2.x",
     "generate-key": ">= 0.0.x",
-    "moment": ">= 2.0.x"
+    "moment": ">= 2.0.x",
+    "mers": "*"
   },
   "devDependencies": {
     "frisby": ">= 0.6.x",

@@ -13,7 +13,8 @@ var app = module.exports = express()
   , config = require('yaml-config').readConfig(__dirname + '/config/config.yml', env)
   , mongoose = require('mongoose')
   , flash = require('connect-flash')
-  , passport = require('passport');
+  , passport = require('passport')
+  , mers = require('mers');
 
 // all environments
 app.set('port', process.env.PORT || config.port);
@@ -53,6 +54,9 @@ if ('development' == app.get('env')) {
 
 // setup routes
 require('./config/routes')(app, passport);
+
+// add REST interface
+app.use('/rest', mers({mongoose: mongoose}).rest());
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
