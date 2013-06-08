@@ -16,5 +16,13 @@
     "unused": true,
     "strict": false,
     "trailing": true,
-    "smarttabs": true
+    "smarttabs": true,
+    "predef": [
+      "describe",   // Used by mocha
+      "it",         // Used by mocha
+      "before",     // Used by mocha
+      "beforeEach", // Used by mocha
+      "after",      // Used by mocha
+      "afterEach"   // Used by mocha
+    ]
 }
