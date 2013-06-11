@@ -31,8 +31,6 @@
     "mers": "*"
   },
   "devDependencies": {
-    "frisby": ">= 0.6.x",
-    "jasmine-node": ">= 1.8.x",
     "mocha": ">= 1.10.x",
     "should": ">= 1.2.x",
     "supertest": "*"
