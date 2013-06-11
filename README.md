@@ -29,7 +29,7 @@ Several npm packages needs to be installed globally (using `sudo npm install -g 
 Clone the repository:
 
 ```sh
-$ git clone git@github.com:Webizly/users.git
+$ git clone git@github.com:mywebclass/users.git
 ```
 
 Install the dependencies for the frontend and backend:
