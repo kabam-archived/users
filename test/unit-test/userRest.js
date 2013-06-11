@@ -8,48 +8,46 @@ process.env.NODE_ENV = 'test';
 var app = require('./../../app');
 
 var testUserA = {
-      active: true,
-      activeDate: '2013-01-01',
-      username: 'testuser',
-      accounts: [
+  active: true,
+  activeDate: '2013-01-01',
+  username: 'testuser',
+  accounts: [
+    {
+      provider: 'local',
+      displayName: 'Test User',
+      name: {
+        familyName: 'User',
+        givenName: 'Test'
+      },
+      emails: [
         {
-          provider: 'local',
-          displayName: 'Test User',
-          name: {
-            familyName: 'User',
-            givenName: 'Test'
-          },
-          emails: [
-            {
-              value: 'test@webizly.com',
-              type: 'default'
-            }
-          ]
+          value: 'test@webizly.com',
+          type: 'default'
         }
       ]
-    },
-    testUserB = {
-      active: true,
-      activeDate: '2013-01-01',
-      username: 'testuser2',
-      accounts: [
+    }
+  ]
+}, testUserB = {
+  active: true,
+  activeDate: '2013-01-01',
+  username: 'testuser2',
+  accounts: [
+    {
+      provider: 'local',
+      displayName: 'Test User 2',
+      name: {
+        familyName: 'User',
+        givenName: 'Test 2'
+      },
+      emails: [
         {
-          provider: 'local',
-          displayName: 'Test User 2',
-          name: {
-            familyName: 'User',
-            givenName: 'Test 2'
-          },
-          emails: [
-            {
-              value: 'test2@webizly.com',
-              type: 'default'
-            }
-          ]
+          value: 'test2@webizly.com',
+          type: 'default'
         }
       ]
-    };
-
+    }
+  ]
+};
 
 describe('User REST API', function () {
   var User = require('mongoose').model('User'),
@@ -57,17 +55,23 @@ describe('User REST API', function () {
       totalUser = 0;
 
   /**
-   * Setup user database by entering
+   * Setup user database by entering a default user
    */
   before(function (done) {
     User.remove(function (err) {
+      if (err) {
+        return done(err);
+      }
       var user = new User(testUserA);
       user.save(function (err, user) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         userId = user._id;
         totalUser = 1;
         return done();
       });
+      return null;
     });
   });
 
@@ -78,7 +82,9 @@ describe('User REST API', function () {
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function (err, res) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         var body = res.body,
             payload = body.payload;
         should.exist(body);
@@ -98,7 +104,9 @@ describe('User REST API', function () {
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function (err, res) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         var body = res.body,
             user = body.payload[0];
         should.exist(body);
@@ -116,11 +124,14 @@ describe('User REST API', function () {
     request(app)
       .post('/rest/user')
       .send(testUserB)
+      .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function (err, res) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         var body = res.body,
             user = body.payload;
         should.exist(body);
@@ -129,7 +140,9 @@ describe('User REST API', function () {
         should.exist(user2Id);
 
         User.findOne({'_id': user2Id}, function (err, user2) {
-          if (err) return done(err);
+          if (err) {
+            return done(err);
+          }
           should.exist(user2);
           user2.username.should.be.equal(testUserB.username);
           user2.active.should.equal(testUserB.active);
@@ -146,11 +159,14 @@ describe('User REST API', function () {
     request(app)
       .put('/rest/user/' + userId)
       .send({ username: 'updatedname' })
+      .set('Content-Type', 'application/json')
       .set('Accept', 'application/json')
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function (err, res) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         var body = res.body,
             user = body.payload;
         should.exist(body);
@@ -159,7 +175,9 @@ describe('User REST API', function () {
         should.exist(userId);
 
         User.findOne({'_id': userId}, function (err, updUser) {
-          if (err) return done(err);
+          if (err) {
+            return done(err);
+          }
           should.exist(updUser);
           updUser.username.should.be.equal('updatedname');
           updUser.active.should.equal(testUserA.active);
@@ -178,14 +196,18 @@ describe('User REST API', function () {
       .expect(200)
       .expect('Content-Type', /json/)
       .end(function (err, res) {
-        if (err) return done(err);
-        var body = res.body,
-            user = body.payload;
+        if (err) {
+          return done(err);
+        }
+        var body = res.body;
+
         should.exist(body);
         body.status.should.equal(0);
 
         User.findOne({'_id': userId}, function (err, deletedUser) {
-          if (err) return done(err);
+          if (err) {
+            return done(err);
+          }
           should.not.exist(deletedUser);
           return done();
         });
