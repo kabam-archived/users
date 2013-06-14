@@ -16,6 +16,8 @@
     "jade": ">= 0.30.x",
     "async": "*",
     "mongoose": ">= 3.6.x",
+    "redis": "*",
+    "hiredis": "*",
     "passport": ">= 0.1.x",
     "passport-local": ">= 0.1.x",
     "passport-local-mongoose": ">= 0.2.x",
@@ -28,7 +30,8 @@
     "yaml-config": ">= 0.2.x",
     "generate-key": ">= 0.0.x",
     "moment": ">= 2.0.x",
-    "mers": "*"
+    "mers": "*",
+    "acl": "*"
   },
   "devDependencies": {
     "frisby": ">= 0.6.x",
