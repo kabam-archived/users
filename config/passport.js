@@ -1,6 +1,5 @@
-var mongoose = require('mongoose')
-  , User = mongoose.model('User')
-  , GoogleStrategy = require('passport-google').Strategy;
+var mongoose = require('mongoose'),
+    GoogleStrategy = require('passport-google').Strategy;
 
 module.exports = function (config, passport) {
   var User = mongoose.model('User');
