@@ -13,8 +13,8 @@ module.exports = function (app, passport) {
   app.post('/signin', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/signin',
-    failureFlash: true})
-    );
+    failureFlash: true
+  }));
   app.get('/logout', authorization.logout);
   app.get('/activate/:string', authorization.activate);
 
@@ -23,7 +23,8 @@ module.exports = function (app, passport) {
   app.get('/auth/google', passport.authenticate('google'));
   app.get('/auth/google/return', passport.authenticate('google', {
     successRedirect: '/',
-    failureRedirect: '/signin'}));
+    failureRedirect: '/signin'
+  }));
 
   app.get('/auth/twitter', function (req, res) {
     res.send(200);

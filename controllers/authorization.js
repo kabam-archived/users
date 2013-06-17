@@ -1,15 +1,14 @@
-var config = require('yaml-config').readConfig(__dirname + '/../config/config.yml')
-  , passport = require('passport')
-  , mongoose = require('mongoose')
-  , User = mongoose.model('User')
-  , email = require('../lib/email')
-  , baseEmail = new email.Email();
+var config = require('yaml-config').readConfig(__dirname + '/../config/config.yml'),
+    mongoose = require('mongoose'),
+    User = mongoose.model('User'),
+    email = require('../lib/email'),
+    baseEmail = new email.Email();
 
 exports.signin = function (req, res) {
   res.render('signin', {
-    title: 'Signin'
-      , user: req.user
-      , message: req.flash('error')
+    title: 'Signin',
+    user: req.user,
+    message: req.flash('error')
   });
 };
 
@@ -30,17 +29,17 @@ exports.newLocalUser = function (req, res) {
       res.redirect('/');
     }
 
-    user.generateConfirmationLink(function (err, data) {
-      
+    user.generateConfirmationLink(function (err) {
+      if (err) {
+        throw new Error(err);
+      }
       email.AccountRegistration(baseEmail);
       var recipient = req.body.email;
 
-      baseEmail.send(recipient, 'MyWebClass account activation',
-        {
-          displayName: req.body.displayName,
-          link: config.app.url + '/activate/' + user.confirmation.string
-        },
-      function (err, result) {
+      baseEmail.send(recipient, 'MyWebClass account activation', {
+        displayName: req.body.displayName,
+        link: config.app.url + '/activate/' + user.confirmation.string
+      }, function (err, result) {
         if (result) {
           req.flash('info', 'Please check your email to activate your account');
           res.redirect('/');
@@ -62,8 +61,9 @@ exports.logout = function (req, res) {
 exports.activate = function (req, res) {
 
   User.findOne({active: false, 'confirmation.string': req.params.string}, function (err, user) {
-    if (err)
+    if (err) {
       throw err;
+    }
     if (!user) {
 
       req.flash('info', 'Activate user failed! Make sure you call the correct link!');
