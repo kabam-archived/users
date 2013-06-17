@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "make test"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,9 @@
   "devDependencies": {
     "mocha": ">= 1.10.x",
     "should": ">= 1.2.x",
-    "supertest": "*"
+    "supertest": "~0.7.0",
+    "grunt": "~0.4.1",
+    "grunt-mocha-cli": "~1.0.6"
   },
   "engine": ">= 0.10.x"
 }
