@@ -17,17 +17,7 @@ setup:
 	npm install -g node-dev
 	cd client; npm install; bower install
 
-test: test-unit test-end-point test-style-backend
-
-test-unit:
-	./node_modules/.bin/mocha \
-	--reporter $(REPORTER) \
-	-t 15s \
-	test/unit-test/*.js
-
-test-end-point:
-	node_modules/jasmine-node/bin/jasmine-node \
-	test/end-point-test/ --forceexit
+test: test-style-backend
 
 test-style-backend:
 	jshint app.js \
