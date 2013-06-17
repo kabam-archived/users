@@ -21,3 +21,4 @@ dist
 
 config/config.yml
 nbproject
+*sublime*
