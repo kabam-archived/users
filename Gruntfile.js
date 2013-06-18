@@ -1,6 +1,16 @@
-module.exports = function(grunt) {
+module.exports = function(grunt) {	
 
 	grunt.initConfig({
+		jshint: {
+			all: [
+			'Gruntfile.js',
+			'lib/**/*.js',
+			'config/**/*.js',
+			'controllers/**/*.js',
+			'models/**/*.js',
+			'test/**/*.js'
+			]
+		},
 		mochacli: {
 			options: {
 				require: ['should'],
@@ -13,8 +23,10 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// Load the plugin that provides the "grunt-mocha-cli" task.
+	// Load the plugin that provides the 'grunt-mocha-cli' task.
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-mocha-cli');
 
+	grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('test', ['mochacli']);
 };

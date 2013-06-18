@@ -38,7 +38,8 @@
     "should": ">= 1.2.x",
     "supertest": "~0.7.0",
     "grunt": "~0.4.1",
-    "grunt-mocha-cli": "~1.0.6"
+    "grunt-mocha-cli": "~1.0.6",
+    "grunt-contrib-jshint": "~0.6.0"
   },
   "engine": ">= 0.10.x"
 }
