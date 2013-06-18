@@ -1,28 +1,28 @@
 {
-    "node": true,
-    "esnext": true,
-    "bitwise": true,
-    "camelcase": true,
-    "curly": true,
-    "eqeqeq": true,
-    "immed": true,
-    "indent": 2,
-    "latedef": true,
-    "newcap": true,
-    "noarg": true,
-    "quotmark": "single",
-    "regexp": true,
-    "undef": true,
-    "unused": true,
-    "strict": false,
-    "trailing": true,
-    "smarttabs": true,
-    "predef": [
-      "describe",   // Used by mocha
-      "it",         // Used by mocha
-      "before",     // Used by mocha
-      "beforeEach", // Used by mocha
-      "after",      // Used by mocha
-      "afterEach"   // Used by mocha
-    ]
+  "node": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": false,
+  "trailing": true,
+  "smarttabs": true,
+  "predef": [
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach"
+  ]
 }

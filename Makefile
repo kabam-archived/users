@@ -1,6 +1,4 @@
-.PHONY: test setup
-
-REPORTER = spec
+.PHONY: setup
 
 setup:
 	npm install
@@ -16,13 +14,3 @@ setup:
 	npm install -g coffee-script
 	npm install -g node-dev
 	cd client; npm install; bower install
-
-test: test-style-backend
-
-test-style-backend:
-	jshint app.js \
-	config \
-	controllers \
-	lib \
-	models \
-	test
