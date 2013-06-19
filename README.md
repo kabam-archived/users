@@ -69,7 +69,7 @@ $ make setup
 then run the tests:
 
 ```sh
-$ make test
+$ npm test
 ```
 
 ## RESTful API
