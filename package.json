@@ -39,7 +39,8 @@
     "supertest": "~0.7.0",
     "grunt": "~0.4.1",
     "grunt-mocha-cli": "~1.0.6",
-    "grunt-contrib-jshint": "~0.6.0"
+    "grunt-contrib-jshint": "~0.6.0",
+    "jsdoc": ">= 3.2.0"
   },
   "engine": ">= 0.10.x"
 }
