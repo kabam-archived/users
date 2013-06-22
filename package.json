@@ -37,10 +37,13 @@
     "mocha": ">= 1.10.x",
     "should": ">= 1.2.x",
     "supertest": "~0.7.0",
-    "grunt": "~0.4.1",
+    "grunt-cli": "*",
     "grunt-mocha-cli": "~1.0.6",
     "grunt-contrib-jshint": "~0.6.0",
-    "jsdoc": ">= 3.2.0-dev"
+    "jsdoc": ">= 3.2.0-dev",
+    "grunt": "~0.4.1",
+    "grunt-contrib": "~0.7.0",
+    "grunt-jsdoc": "~0.3.3"
   },
   "engine": ">= 0.10.x"
 }

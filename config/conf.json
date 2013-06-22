@@ -24,7 +24,7 @@
   },
   "opts": {
     "encoding": "utf8",
-	  "destination": "./client/app/docs/",
+	  "destination": "client/app/docs/",
     "recurse": true,
     "tutorials": "",
     "query": "",
