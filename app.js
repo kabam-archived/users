@@ -3,18 +3,21 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , http = require('http')
-  , path = require('path')
-  , fs = require('fs');
+var
+  express = require('express'),
+  http = require('http'),
+  path = require('path'),
+  fs = require('fs');
 
-var app = module.exports = express()
-  , env = process.env.NODE_ENV || 'development'
-  , config = require('yaml-config').readConfig(__dirname + '/config/config.yml', env)
-  , mongoose = require('mongoose')
-  , flash = require('connect-flash')
-  , passport = require('passport')
-  , mers = require('mers');
+var
+  app = module.exports = express(),
+  env = process.env.NODE_ENV || 'development',
+  config = require('yaml-config').readConfig(__dirname + '/config/config.yml',
+    env),
+  mongoose = require('mongoose'),
+  flash = require('connect-flash'),
+  passport = require('passport'),
+  mers = require('mers');
 
 // all environments
 app.set('port', process.env.PORT || config.port);
