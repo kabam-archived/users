@@ -22,3 +22,4 @@ dist
 config/config.yml
 nbproject
 *sublime*
+client/app/docs

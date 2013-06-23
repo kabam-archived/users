@@ -1,0 +1,34 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": [
+      "app.js",
+      "config",
+      "controllers",
+      "lib",
+      "models",
+    ],
+    "exclude": [],
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    }
+  },
+  "opts": {
+    "encoding": "utf8",
+	  "destination": "client/app/docs/",
+    "recurse": true,
+    "tutorials": "",
+    "query": "",
+    "private": true,
+    "lenient": true
+ 	}
+}
