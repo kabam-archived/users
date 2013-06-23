@@ -41,8 +41,10 @@ exports.newLocalUser = function (req, res) {
         displayName: req.body.displayName,
         link: config.app.url + '/activate/' + user.confirmation.string
       }, function (err, result) {
-        console.log('err, result', err, result);
-        if (result) {
+        if (err) {
+          req.flash('error', 'Something wrong');
+          res.redirect('/signup');
+        } else if (result) {
           req.flash('info', 'Please check your email to activate your account');
           res.redirect('/');
         }
