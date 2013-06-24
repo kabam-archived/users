@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       ],
       options: {
         destination: 'client/app/docs',
-        configure: 'config/conf.json'
+        configure: 'config/jsdoc.json'
       }
     }
   }
