@@ -58,19 +58,48 @@ describe('Email', function () {
         var baseEmail = new email.Email(stubTransport);
         email.AccountRegistration(baseEmail);
 
-        baseEmail.send('keith@webizly.com',
-                       'Test subject',
-                       { displayName: 'Test Display Name', link: 'http://example.com/1234567890' },
-                       function (err, result) {
-                          if (err) {
-                            throw err;
-                          }
-                          result.should.be.a('object');
-                          result.should.have.property('message');
-                          result.should.have.property('messageId');
+        baseEmail.send('keith@webizly.com', 'Test subject',
+        {
+          displayName: 'Test Display Name',
+          link: 'http://example.com/1234567890'
+        },
+        function (err, result) {
+          if (err) {
+            throw err;
+          }
+          
+          result.should.be.a('object');
+          result.should.have.property('message');
+          result.should.have.property('messageId');
 
-                          done();
-                        });
+          done();
+        });
+      });
+    });
+  });
+
+  describe('Account Cancel', function () {
+    describe('#AccountCancel()', function () {
+      it('should sent an account cancel message', function (done) {
+        var stubTransport = nodemailer.createTransport('Stub');
+        var baseEmail = new email.Email(stubTransport);
+        email.CancelAccount(baseEmail);
+
+        baseEmail.send('keith@webizly.com', 'Cancel Account',
+        {
+          displayName: 'Keith W.'
+        },
+        function (err, result) {
+          if (err) {
+            throw err;
+          }
+
+          result.should.be.a('object');
+          result.should.have.property('message');
+          result.should.have.property('messageId');
+
+          done();
+        });
       });
     });
   });
