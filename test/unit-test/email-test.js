@@ -36,8 +36,8 @@ describe('Email', function () {
     });
 
     it('Cancel Account decorator should exists', function () {
-      should.exist(email.CancelAccount);
-      email.CancelAccount.should.be.a('function');
+      should.exist(email.AccountCancel);
+      email.AccountCancel.should.be.a('function');
     });
 
     it('Account Confirmation decorator should exists', function () {
@@ -83,7 +83,7 @@ describe('Email', function () {
       it('should sent an account cancel message', function (done) {
         var stubTransport = nodemailer.createTransport('Stub');
         var baseEmail = new email.Email(stubTransport);
-        email.CancelAccount(baseEmail);
+        email.AccountCancel(baseEmail);
 
         baseEmail.send('keith@webizly.com', 'Cancel Account',
         {
