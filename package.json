@@ -43,7 +43,9 @@
     "jsdoc": ">= 3.2.0-dev",
     "grunt": "~0.4.1",
     "grunt-contrib": "~0.7.0",
-    "grunt-jsdoc": "~0.3.3"
+    "grunt-jsdoc": "~0.3.3",
+    "grunt-shell": "~0.3.0",
+    "node-dev": "~2.0.1"
   },
   "engine": ">= 0.10.x"
 }

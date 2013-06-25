@@ -11,7 +11,6 @@ module.exports = function(grunt) {
       'test/**/*.js'
       ]
     },
-
     mochacli: {
      options: {
       require: ['should'],
@@ -22,7 +21,6 @@ module.exports = function(grunt) {
     },
     all: ['test/*.js']
   },
-
   jsdoc: {
     dist: {
       src: [
@@ -39,16 +37,21 @@ module.exports = function(grunt) {
         configure: 'config/jsdoc.json'
       }
     }
+  },
+  shell: {
+    server: {
+      command: './node_modules/node-dev/bin/node-dev app.js'
+    }
   }
-
 });
 
-	// Load the plugin that provides the 'grunt-mocha-cli' task.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mocha-cli');
   grunt.loadNpmTasks('grunt-jsdoc');
+  grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('lint', ['jshint']);
   grunt.registerTask('test', ['mochacli']);
+  grunt.registerTask('server', ['shell']);
   grunt.registerTask('default', ['mochacli', 'jshint', 'jsdoc']);
 };

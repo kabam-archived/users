@@ -21,7 +21,6 @@ Several npm packages needs to be installed globally (using `sudo npm install -g 
  6. [phantomjs](https://github.com/Obvious/phantomjs) (client-side testing platform)
  7. [jshint](https://github.com/jshint/jshint) (code style checker)
  8. [coffee-script](https://github.com/jashkenas/coffee-script) (coffee script compiler)
- 9. [node-dev](https://github.com/fgnass/node-dev) (node application restarter)
 
 ### Installation Notes
 
@@ -53,7 +52,7 @@ $ npm start
 
 Or to run it in development mode:
 ```sh
-$ node-dev app.js
+$ grunt server
 ```
 
 ## Running Tests
