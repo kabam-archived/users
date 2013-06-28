@@ -1,0 +1,668 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"conso",
+				"console.log(message);"
+			],
+			[
+				"con",
+				"console.log(message);"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 1199,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 3316,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 305,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".jshintignore",
+			"settings":
+			{
+				"buffer_size": 15,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 139,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".jshintrc",
+			"settings":
+			{
+				"buffer_size": 440,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1697,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "module.exports = function (app, passport) {\n\n  var authorization = require('../controllers/authorization'),\n    pages = require('../controllers/pages'),\n    users = require('../controllers/users'),\n    auth = require('../lib/authorization');\n\n  app.get('/logout', authorization.logout);\n  app.get('/activate/:string', authorization.activate);\n\n  app.get('/users', auth.requiresLogin, users.list);\n\n  app.get('/auth/google', passport.authenticate('google'));\n  app.get('/auth/google/return', passport.authenticate('google', {\n    successRedirect: '/',\n    failureRedirect: '/signin'\n  }));\n\n  app.get('/auth/twitter', function (req, res) {\n    res.send(200);\n  });\n\n  app.get('/auth/facebook', function (req, res) {\n    res.send(200);\n  });\n\n  app.get('/auth/linked-in', function (req, res) {\n    res.send(200);\n  });\n\n  app.get('/auth/meetup', function (req, res) {\n    res.send(200);\n  });\n\n  app.get('/auth/github', function (req, res) {\n    res.send(200);\n  });\n\n};\n",
+			"file": "config/routes.js",
+			"file_size": 1251,
+			"file_write_time": 1372178324000000,
+			"settings":
+			{
+				"buffer_size": 969,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/passport.js",
+			"settings":
+			{
+				"buffer_size": 1052,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/mail.js",
+			"settings":
+			{
+				"buffer_size": 384,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"dif",
+				"Git: Diff Current File"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reident",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"projec",
+				"Project: Save As"
+			],
+			[
+				"project",
+				"Project: Save As"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package Contro",
+				"Package Control: Install Package"
+			],
+			[
+				"git: bl",
+				"Git: Blame"
+			],
+			[
+				"git d",
+				"Git: Diff All"
+			],
+			[
+				"",
+				"Git: Diff Current File"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"npm",
+				"Nodejs::NPM::Install"
+			],
+			[
+				"node",
+				"Nodejs::User File Settings"
+			],
+			[
+				"Package",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 188.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ghazali/version-control/git/mywebclass/users/app.js",
+		"/home/ghazali/version-control/git/mywebclass/users/package.json",
+		"/home/ghazali/version-control/git/mywebclass/users/test/unit-test/email-test.js",
+		"/home/ghazali/version-control/git/mywebclass/users/lib/email.js",
+		"/home/ghazali/version-control/git/mywebclass/users/config/passport.js",
+		"/home/ghazali/version-control/git/mywebclass/users/config/routes.js",
+		"/home/ghazali/version-control/git/mywebclass/users/config/config.yml",
+		"/home/ghazali/version-control/git/mywebclass/users/Gruntfile.js",
+		"/home/ghazali/version-control/git/mywebclass/users/templates/emails/cancel.jade",
+		"/home/ghazali/version-control/git/mywebclass/users/templates/emails/welcome.jade",
+		"/home/ghazali/version-control/git/mywebclass/users/templates/emails/account_activation/cancel.jade",
+		"/home/ghazali/version-control/git/mywebclass/users/Makefile",
+		"/home/ghazali/version-control/git/mywebclass/users/config/jsdoc.json",
+		"/home/ghazali/version-control/git/mywebclass/users/.jshintignore",
+		"/home/ghazali/version-control/git/mywebclass/users/controllers/users.js",
+		"/home/ghazali/version-control/git/mywebclass/users/config/mail.js",
+		"/home/ghazali/version-control/git/mywebclass/users/lib/initializeData.js",
+		"/home/ghazali/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/ghazali/.config/sublime-text-2/Packages/User/JavaScript.sublime-settings",
+		"/home/ghazali/version-control/git/mywebclass/users/config/conf.json",
+		"/home/ghazali/version-control/git/mywebclass/users/lib/authorization.js",
+		"/home/ghazali/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+		"/home/ghazali/version-control/git/mywebclass/users/controllers/authorization.js",
+		"/home/ghazali/version-control/git/mywebclass/users/templates/emails/account_activation/welcome.jade",
+		"/home/ghazali/version-control/git/mywebclass/users/config/config.sample.yml",
+		"/home/ghazali/version-control/git/mywebclass/users/README.md",
+		"/home/ghazali/version-control/git/mywebclass/users/users.sublime-project",
+		"/home/ghazali/version-control/git/mywebclass/users/.jshintrc",
+		"/home/ghazali/version-control/git/mywebclass/users/models/core.js",
+		"/home/ghazali/version-control/git/mywebclass/users/models/navigationNode.js",
+		"/home/ghazali/version-control/git/mywebclass/users/users.sublime-workspace",
+		"/home/ghazali/version-control/git/mywebclass/users/test/unit-test/userRest.js",
+		"/home/ghazali/version-control/git/webizly/users/users.sublime-workspace",
+		"/home/ghazali/version-control/git/webizly/users/users.sublime-project",
+		"/home/ghazali/version-control/git/webizly/users/test/unit-test/userRest.js",
+		"/home/ghazali/.config/sublime-text-2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/home/ghazali/version-control/git/webizly/users/templates/emails/account_activation/welcome.jade",
+		"/home/ghazali/.config/sublime-text-2/Packages/User/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/home/ghazali/version-control/git/mywebclass/users/",
+			"/home/ghazali/version-control/git/mywebclass/users/controllers",
+			"/home/ghazali/version-control/git/mywebclass/users/lib",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"CancelAccount",
+			"configure: 'config/conf.json'",
+			"console",
+			"generateConfirmationLink",
+			"\"",
+			"// Used by mocha",
+			"font"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"AccountCancel",
+			"'",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Gruntfile.js",
+					"settings":
+					{
+						"buffer_size": 1199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								506,
+								506
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 3316,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								630,
+								630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 1254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": ".jshintignore",
+					"settings":
+					{
+						"buffer_size": 15,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								100,
+								100
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": ".jshintrc",
+					"settings":
+					{
+						"buffer_size": 440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 1697,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								196,
+								196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "config/routes.js",
+					"settings":
+					{
+						"buffer_size": 969,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								45,
+								582
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "config/passport.js",
+					"settings":
+					{
+						"buffer_size": 1052,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								318,
+								318
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "config/mail.js",
+					"settings":
+					{
+						"buffer_size": 384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149,
+								149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.git":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
