@@ -1,51 +1,32 @@
 {
-  "name": "webizly-users",
+  "name": "users",
   "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node app.js",
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mywebclass/users"
-  },
-  "dependencies": {
-    "express": ">= 3.2.x",
-    "connect-flash": ">= 0.1.x",
-    "jade": ">= 0.30.x",
-    "async": "*",
-    "mongoose": ">= 3.6.x",
-    "redis": "*",
-    "hiredis": "*",
-    "passport": ">= 0.1.x",
-    "passport-local": ">= 0.1.x",
-    "passport-local-mongoose": ">= 0.2.x",
-    "passport-google": ">= 0.3.x",
-    "passport-github": ">= 0.1.x",
-    "passport-linkedin": ">= 0.1.x",
-    "passport-twitter": ">= 0.1.x",
-    "passport-meetup": ">= 0.1.x",
-    "nodemailer": ">= 0.4.x",
-    "yaml-config": ">= 0.2.x",
-    "generate-key": ">= 0.0.x",
-    "moment": ">= 2.0.x",
-    "mers": "*",
-    "acl": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "mocha": ">= 1.10.x",
-    "should": ">= 1.2.x",
-    "supertest": "~0.7.0",
-    "grunt-cli": "*",
-    "grunt-mocha-cli": "~1.0.6",
-    "grunt-contrib-jshint": "~0.6.0",
-    "jsdoc": ">= 3.2.0-dev",
     "grunt": "~0.4.1",
-    "grunt-contrib": "~0.7.0",
-    "grunt-jsdoc": "~0.3.3",
-    "grunt-shell": "~0.3.0",
-    "node-dev": "~2.0.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-compass": "~0.3.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-imagemin": "~0.1.4",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-usemin": "~0.1.11",
+    "grunt-rev": "~0.1.0",
+    "grunt-karma": "~0.4.3",
+    "grunt-open": "~0.2.0",
+    "grunt-concurrent": "~0.3.0",
+    "matchdep": "~0.1.2",
+    "connect-livereload": "~0.2.0",
+    "grunt-google-cdn": "~0.2.0",
+    "grunt-ngmin": "~0.0.2"
   },
-  "engine": ">= 0.10.x"
+  "engines": {
+    "node": ">=0.8.0"
+  }
 }

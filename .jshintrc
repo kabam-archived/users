@@ -1,5 +1,6 @@
 {
   "node": true,
+  "browser": true,
   "esnext": true,
   "bitwise": true,
   "camelcase": true,
@@ -14,15 +15,10 @@
   "regexp": true,
   "undef": true,
   "unused": true,
-  "strict": false,
+  "strict": true,
   "trailing": true,
   "smarttabs": true,
-  "predef": [
-    "describe",
-    "it",
-    "before",
-    "beforeEach",
-    "after",
-    "afterEach"
-  ]
+  "globals": {
+    "angular": false
+  }
 }
