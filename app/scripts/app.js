@@ -11,6 +11,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl'
       })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
