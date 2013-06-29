@@ -31,6 +31,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/auth/github.html',
         controller: 'AuthGithubCtrl'
       })
+      .when('/auth/linkedin', {
+        templateUrl: 'views/auth/linkedin.html',
+        controller: 'AuthLinkedinCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
