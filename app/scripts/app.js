@@ -19,6 +19,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/signout.html',
         controller: 'SignoutCtrl'
       })
+      .when('/auth/twitter', {
+        templateUrl: 'views/auth/twitter.html',
+        controller: 'AuthTwitterCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
