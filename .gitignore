@@ -3,3 +3,5 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+users.sublime-project
+users.sublime-workspace
