@@ -23,6 +23,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/auth/twitter.html',
         controller: 'AuthTwitterCtrl'
       })
+      .when('/auth/facebook', {
+        templateUrl: 'views/auth/facebook.html',
+        controller: 'AuthFacebookCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
