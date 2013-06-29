@@ -15,6 +15,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/signout', {
+        templateUrl: 'views/signout.html',
+        controller: 'SignoutCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
