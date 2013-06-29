@@ -27,6 +27,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/auth/facebook.html',
         controller: 'AuthFacebookCtrl'
       })
+      .when('/auth/github', {
+        templateUrl: 'views/auth/github.html',
+        controller: 'AuthGithubCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
