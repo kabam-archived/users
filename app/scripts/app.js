@@ -39,6 +39,10 @@ angular.module('usersApp', [])
         templateUrl: 'views/auth/meetup.html',
         controller: 'AuthMeetupCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
