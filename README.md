@@ -41,7 +41,7 @@ $ grunt server
 
 ## Running Tests
 
-then run the tests:
+We assume you already install the dependencies. To run the test:
 
 ```sh
 $ grunt test
