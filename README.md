@@ -1,4 +1,4 @@
-[![Stories in Ready](http://badge.waffle.io/mywebclass/users.png)](http://waffle.io/mywebclass/users)  
+[![Stories in Ready](https://badge.waffle.io/mywebclass/users.png)](http://waffle.io/mywebclass/users)  
 # MYWEBCLASS
 
 ## Installation Note
